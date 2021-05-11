@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Collide.io</title>
+  <meta charset="UTF-8">
+  <link rel="icon" href="./images/ball_icon.svg" />
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #container {
+      background-color: #a7a7a7;
+      height: 100vh;
+    }
+
+    Ranking {
+      position: fixed;
+      right: 0;
+      user-select: none;
+    }
+
+    UI {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    Main {
+      height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    Main img {
+      width: 50px;
+      height: 50px;
+      position: fixed;
+      margin: 10px;
+    }
+
+    #logo {
+      font-size: 150px;
+      color: rgb(77, 59, 59);
+      text-shadow: rgb(255, 255, 255) 0px 0px 0.45em;
+      margin-bottom: 100px;
+      user-select: none;
+    }
+
+    #login {
+      width: 250px;
+      height: 25px;
+      border-radius: 40px;
+      box-shadow: 0px 1px 3px 0.5px #2b3030;
+      margin-bottom: 50px;
+
+    }
+
+    .play {
+      color: #000000;
+      width: 100px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 15 px;
+      background-color: rgb(190, 190, 190);
+      border-radius: 40px;
+      box-shadow: 0px 1px 5px 2px #2b3030;
+      cursor: pointer;
+    }
+
+    .play:hover {
+      background-color: rgb(204, 204, 204);
+      transition: background-color 0.2s;
+    }
+
+    #game {
+      background-color: white;
+      height: 600px;
+      z-index: 99;
+    }
+
+    #leftbar {
+      left: 100px;
+      height: 600px;
+      position: fixed;
+      z-index: 98;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #rightbar {
+      right: 60px;
+      height: 600px;
+      position: fixed;
+      z-index: 98;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #private {
+
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      margin: 20px 0px;
+      justify-content: center;
+    }
+
+    #privatecreate {
+      width: 200px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      justify-content: center;
+    }
+
+    #privatejoin {
+      width: 200px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
+
+    #code {
+      height:50px;
+    }
+
+    #chat {
+      height: 80vh;
+      width: 280px;
+      overflow-x: visible;
+      overflow-y: scroll;
+      display: flex;
+      align-items: left;
+      flex-direction: column;
+    }
+
+    #chat::-webkit-scrollbar {
+      width: 0.3rem;
+    }
+
+
+    #chat::-webkit-scrollbar-thumb {
+      background: #D6D6D6;
+    }
+
+    #message {
+      width: 100%;
+    }
+
+    #myCanvas {
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <UI>
+      <div id="logo">Collide.io</div>
+      <input type="text" class="form-control" id="login" placeholder="輸入名稱">
+
+      <div class="play" id="play">快速加入</div>
+
+     
+
+    </UI>
+    <Main>
+      <div id="leftbar">
+        <p id="room"></p>
+        <p id="event"></p>
+        <p id="name"></p>
+        <p>Rank</p>
+        <p id="rank"></p>
+
+      </div>
+      <div id="game">
+        <img id="leave" src="images/leave.svg" alt="leave">
+        <canvas id="myCanvas"></canvas>
+      </div>
+      <div id="rightbar">
+        <p>聊天室</p>
+        <p id="chat"></p>
+        <input type="text" id="message" name="fname" placeholder="輸入訊息">
+      </div>
+    </Main>
+    <div id="error">
+
+    </div>
+  </div>
+
+
+  <script src="javascripts/socket.io.js"></script>
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/game.js"></script>
+</body>
+
+</html>

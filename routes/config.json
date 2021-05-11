@@ -1,0 +1,8 @@
+{
+    "PORT": 80,
+    "redis-adapter": {
+        "host": "localhost",
+        "port": 6379
+    },
+    "frameRate": 70
+}
